@@ -1,0 +1,22 @@
+import React from 'react';
+import { Search } from 'lucide-react';
+
+interface ProjectSearchProps {
+  searchTerm: string;
+  onSearchChange: (value: string) => void;
+}
+
+export default function ProjectSearch({ searchTerm, onSearchChange }: ProjectSearchProps) {
+  return (
+    <div className="relative mb-6">
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+      <input
+        type="text"
+        placeholder="Rechercher un projet..."
+        value={searchTerm}
+        onChange={(e) => onSearchChange(e.target.value)}
+        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      />
+    </div>
+  );
+}
