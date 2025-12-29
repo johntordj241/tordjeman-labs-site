@@ -10,7 +10,7 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    include: ['react-hook-form']
+    include: []
   },
   build: {
     outDir: 'dist',
@@ -19,8 +19,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['@headlessui/react', 'lucide-react'],
-          'form-vendor': ['react-hook-form']
+          'ui-vendor': ['lucide-react']
         }
       }
     }

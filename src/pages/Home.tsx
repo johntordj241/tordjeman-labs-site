@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Rocket, Leaf, Users } from 'lucide-react';
+import { ArrowRight, Compass, Shield, Users } from 'lucide-react';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ProjectCarousel from '../components/home/ProjectCarousel';
@@ -8,22 +8,22 @@ import SocialImpact from '../components/home/SocialImpact';
 
 const quickLinks = [
   {
-    title: 'Projets Innovants',
-    description: 'Découvrez nos dernières innovations',
-    icon: Rocket,
-    href: '/projects'
+    title: 'Axes d’expertise',
+    description: 'Cartographie des domaines que nous accompagnons au quotidien.',
+    icon: Compass,
+    href: '/expertises'
   },
   {
-    title: 'Solutions & Services',
-    description: 'Explorez notre marketplace',
-    icon: Leaf,
-    href: '/market'
+    title: 'Méthodologie & cadres',
+    description: 'Une démarche sobre et documentée, sans promesse fonctionnelle superflue.',
+    icon: Shield,
+    href: '/methodologie'
   },
   {
-    title: 'Partenariats',
-    description: 'Collaborons ensemble',
+    title: 'Modalités de collaboration',
+    description: 'Processus d’accès à l’atelier interne sécurisé.',
     icon: Users,
-    href: '/contact'
+    href: '/modalites-collaboration'
   }
 ];
 
@@ -32,8 +32,7 @@ export default function Home() {
     <div className="flex flex-col">
       <Hero />
       <Features />
-      
-      {/* Quick Links Section */}
+
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -41,7 +40,7 @@ export default function Home() {
               <a
                 key={link.title}
                 href={link.href}
-                className="group bg-gray-50 p-6 rounded-lg hover:bg-blue-50 transition-colors duration-300"
+                className="group bg-gray-50 p-6 rounded-xl hover:bg-blue-50 transition-colors duration-300"
               >
                 <div className="flex items-center space-x-4">
                   <link.icon className="h-8 w-8 text-blue-900" />
@@ -59,13 +58,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects Carousel */}
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm uppercase tracking-[0.4em] text-blue-200 font-semibold mb-3">
+            Identité visuelle
+          </p>
+          <h2 className="text-3xl font-bold mb-4">Animation officielle du sceau Tordjeman Labs</h2>
+          <p className="text-lg text-blue-100 mb-8">
+            Cette animation est partagée uniquement pour illustrer l’univers de marque. Elle ne
+            dévoile aucun outil de l’atelier interne.
+          </p>
+          <div className="aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-xl">
+            <iframe
+              src="https://player.vimeo.com/video/1150144011?title=0&byline=0&portrait=0"
+              title="Animation du logo Tordjeman Labs"
+              allow="autoplay; fullscreen; picture-in-picture"
+              loading="lazy"
+              className="w-full h-full"
+            />
+          </div>
+        </div>
+      </section>
+
       <ProjectCarousel />
-
-      {/* New Projects Section */}
       <NewProjects />
-
-      {/* Social Impact Section */}
       <SocialImpact />
     </div>
   );

@@ -4,21 +4,27 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 const projects = [
   {
     id: 1,
-    title: 'FashionFusion',
-    description: 'Plateforme innovante combinant mode éthique et technologie durable.',
-    image: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
+    title: 'Coalition pour les matériaux sobres',
+    description:
+      'Accompagnement d’un groupe d’industriels européens dans la définition de standards de matériaux biosourcés.',
+    image:
+      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 2,
-    title: 'EcoTrans',
-    description: 'Solution de transport intelligent réduisant l\'empreinte carbone.',
-    image: 'https://images.unsplash.com/photo-1530878902700-5ad4f9e4c318?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
+    title: 'Programme santé intégrative Outre-mer',
+    description:
+      'Dispositif de prévention co-construit avec des acteurs de santé, des anthropologues et des associations locales.',
+    image:
+      'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 3,
-    title: 'ZeroWaste Industries',
-    description: 'Système intégré de gestion des déchets industriels.',
-    image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'
+    title: 'Observatoire des communs énergétiques',
+    description:
+      'Études comparatives et partage de scénarios pour sécuriser les micro-réseaux électriques.',
+    image:
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
@@ -41,7 +47,7 @@ const ProjectCarousel = () => {
   };
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 5000);
+    const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
   }, []);
 
@@ -52,22 +58,17 @@ const ProjectCarousel = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-          Projets Phares
-        </h2>
-        
-        <div className="relative overflow-hidden">
-          <div 
+        <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Programmes emblématiques</h2>
+
+        <div className="relative overflow-hidden rounded-2xl">
+          <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             onTransitionEnd={handleTransitionEnd}
           >
             {projects.map((project) => (
-              <div 
-                key={project.id}
-                className="w-full flex-shrink-0 px-4"
-              >
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div key={project.id} className="w-full flex-shrink-0 px-4">
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
                   <div className="relative h-64">
                     <img
                       src={project.image}

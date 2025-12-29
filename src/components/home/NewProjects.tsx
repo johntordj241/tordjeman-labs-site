@@ -1,35 +1,36 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Mic, Wallet } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Globe, Activity } from 'lucide-react';
 
-const newProjects = [
+const programmes = [
   {
-    id: 'voicecrush',
-    title: 'VoiceCrush',
-    description: 'Réinvente les rencontres en ligne grâce à la voix et à l\'IA.',
-    icon: Mic,
-    image: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-    status: 'En développement',
-    features: [
-      'Enregistrements vocaux personnalisés',
-      'Algorithme intelligent de correspondance',
-      'Communication via messagerie vocale',
-      'Profils interactifs'
+    id: 'atlas-biocites',
+    title: 'Atlas Biocités',
+    description:
+      'Programme d’observation des corridors écologiques urbains pour aider les collectivités à préparer leurs documents d’urbanisme.',
+    icon: Globe,
+    image:
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80',
+    status: 'Observation continue 2024-2025',
+    outcomes: [
+      'Tableaux de bord territoriaux frugaux',
+      'Ateliers en binôme avec les agences d’urbanisme',
+      'Notes d’aide à la décision transmises aux élus'
     ]
   },
   {
-    id: 'openfin',
-    title: 'OpenFin',
-    description: 'Finance décentralisée accessible et sécurisée grâce à la blockchain.',
-    icon: Wallet,
-    image: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
-    status: 'Modules clés opérationnels',
-    features: [
-      'Paiements P2P sécurisés',
-      'Prêts décentralisés',
-      'Portefeuille numérique tout-en-un',
-      'Technologie blockchain avancée'
+    id: 'veille-sante',
+    title: 'Veille Santé intégrative',
+    description:
+      'Approche croisant sciences du vivant et sciences sociales pour renforcer la prévention dans les territoires ultramarins.',
+    icon: Activity,
+    image:
+      'https://images.unsplash.com/photo-1456189777792-3af569c773f0?auto=format&fit=crop&w=1200&q=80',
+    status: 'Phase d’analyse partagée',
+    outcomes: [
+      'Référentiels de prévention contextualisés',
+      'Parcours patients augmentés par la donnée qualitative',
+      'Feuilles de route remises aux ARS partenaires'
     ]
   }
 ];
@@ -39,71 +40,49 @@ export default function NewProjects() {
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Nouveaux Projets en Développement
-          </h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Programmes d’étude en cours</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez les initiatives les plus récentes de Tordjeman Labs, conçues pour transformer des idées novatrices en solutions concrètes et durables.
+            Ces travaux sont menés dans des environnements sécurisés. Le site public ne présente que
+            des synthèses pour éclairer les partenaires et futurs mandats.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {newProjects.map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {programmes.map((programme) => (
             <motion.div
-              key={project.id}
-              whileHover={{ scale: 1.02 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden"
+              key={programme.id}
+              whileHover={{ scale: 1.01 }}
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
             >
               <div className="relative h-64">
                 <img
-                  src={project.image}
-                  alt={project.title}
+                  src={programme.image}
+                  alt={programme.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center space-x-3 text-white mb-2">
-                    <project.icon className="h-6 w-6" />
-                    <h3 className="text-2xl font-bold">{project.title}</h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <programme.icon className="h-6 w-6" />
+                    <h3 className="text-2xl font-bold">{programme.title}</h3>
                   </div>
-                  <p className="text-gray-200">{project.description}</p>
+                  <p className="text-sm text-white/80">{programme.status}</p>
                 </div>
               </div>
 
               <div className="p-6">
-                <div className="mb-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                    {project.status}
-                  </span>
-                </div>
-
-                <h4 className="font-semibold mb-3">Fonctionnalités clés :</h4>
-                <ul className="space-y-2 mb-6">
-                  {project.features.map((feature, index) => (
-                    <li key={index} className="flex items-center text-gray-600">
-                      <ArrowRight className="h-4 w-4 mr-2 text-blue-900" />
-                      {feature}
+                <p className="text-gray-700 mb-4">{programme.description}</p>
+                <ul className="space-y-2">
+                  {programme.outcomes.map((outcome) => (
+                    <li key={outcome} className="flex items-start text-sm text-gray-600">
+                      <ArrowRight className="h-4 w-4 text-blue-900 mr-2 mt-0.5" />
+                      {outcome}
                     </li>
                   ))}
                 </ul>
-
-                <button className="btn w-full justify-center">
-                  En savoir plus
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </button>
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Link
-            to="/projects"
-            className="btn inline-flex items-center"
-          >
-            Découvrez tous nos projets
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>
