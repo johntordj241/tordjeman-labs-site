@@ -1,37 +1,36 @@
-# Tordjeman Labs — Site public
+# Tordjeman Labs — Site public (clôture définitive)
 
-Ce dépôt contient **la seule vitrine institutionnelle** de Tordjeman Labs. Il présente notre positionnement, nos axes d’expertise et nos publications. Toute fonctionnalité applicative (IDE, tableaux de bord, KPI, marketplace, outils collaboratifs, etc.) reste confinée dans l’atelier interne privé et n’est jamais exposée ici.
+Ce dépôt contient la version figée du site institutionnel Tordjeman Labs. Il est régi par le **Cahier des Charges — Site Tordjeman Labs (Version 2.0)** et ne doit plus évoluer hors décision stratégique formelle.
 
-## Structure
+## Statut du projet
 
-- `src/components` : fondations UI (navigation, hero, sections éditoriales).
-- `src/pages` : pages autorisées (Accueil, À propos, Axes d’expertise, Méthodologie, Recherche & prospective, Cadres éthiques, Publications PDF, Modalités de collaboration, Contact).
-- Aucune logique d’authentification ou d’accès applicatif n’est chargée côté client.
+- Vitrine institutionnelle, lecture seule, périmètre limité aux pages listées dans le CDC v2.0.
+- Aucune fonctionnalité applicative, aucun back-office, aucun chatbot, aucun paiement.
+- Le site reflète uniquement le rôle de hub stratégique ; l’atelier privé reste hors périmètre.
 
-## Environnements
+## Gouvernance éditoriale
 
-- `.env` n’est **pas versionné** et ne contient aucun secret public. Utiliser `.env.example` uniquement comme mémo des variables réservées à l’atelier interne.
-- Les clés Supabase, les endpoints sensibles ou les scripts d’atelier sont stockés dans des dépôts privés distincts et ne transitent jamais par ce code.
+- La production et la validation des contenus sont pilotées exclusivement via **TAI-Systeme (Notion)**.
+- Le site consomme uniquement les éléments marqués « Statut = Publié » et « Niveau = Public ».
+- Le site ne décide jamais : il affiche ce qui est autorisé par le CDC v2.0.
 
-## Commandes
+## Commandes (pour archivage)
 
 ```bash
 npm install
-npm run dev      # développement local
-npm run build    # bundle statique destiné à l’hébergement public
+npm run dev
+npm run build
 ```
 
-## Principes de sécurité
+Ces commandes servent uniquement à reconstruire la vitrine statique autorisée par le CDC v2.0.
 
-1. **Vitrine uniquement** : ce bundle React/Vite ne contient ni IDE, ni console, ni accès administrateur.
-2. **Routes limitées** : seul le contenu éditorial listé ci-dessus est exposé. Toute requête hors périmètre est redirigée vers l’accueil.
-3. **Pas de promesse fonctionnelle factice** : les formulaires renvoient vers des canaux de contact officiels, jamais vers des API simulées.
-4. **Atelier interne isolé** : les environnements collaboratifs, les scripts d’analyse et les modules temps réel opèrent dans un autre espace sous authentification forte.
+## Règle de gel
 
-## Gel stratégique
+- Toute demande future hors CDC v2.0 doit être refusée.
+- Seule une décision stratégique explicite, consignée dans Notion, peut ouvrir un nouveau chantier.
+- Sans nouveau mandat, ce dépôt reste inchangé ; il constitue un actif institutionnel stable.
 
-Ce site est **figé par décision de gouvernance**. Tant que la direction n’a pas levé ce freeze, aucune fonctionnalité supplémentaire (authentification, dashboards, paiements, IDE, etc.) ne doit être ajoutée au périmètre public. Toute évolution applicative doit être développée et auditée dans l’atelier interne privé.
+## Référence
 
-## Contribuer
-
-Merci de veiller à ce que toute évolution respecte ces règles. Les fonctionnalités interactives destinées aux partenaires doivent être développées dans l’atelier interne, jamais dans ce dépôt public.
+- Document maître : **Cahier des Charges — Site Tordjeman Labs (Version 2.0)** (`CDC_v2.0.md`).
+- Toute documentation antérieure est caduque.
