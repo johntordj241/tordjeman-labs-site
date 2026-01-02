@@ -65,6 +65,14 @@ export default function About() {
           </div>
         </div>
 
+        <div className="bg-white border border-blue-100 rounded-3xl p-8 shadow-sm mb-16">
+          <p className="text-sm uppercase tracking-[0.3em] text-blue-900 font-semibold mb-2">Citation fondatrice</p>
+          <p className="text-2xl text-gray-900 font-semibold">
+            « Ce n’est pas parce que les choses sont difficiles que nous n’osons pas, mais parce que nous n’osons pas qu’elles sont difficiles. »
+          </p>
+          <p className="text-sm text-gray-500 mt-3">Source : Sénèque</p>
+        </div>
+
         <div className="bg-gray-50 rounded-3xl p-10 space-y-8">
           <div className="flex flex-col sm:flex-row items-center gap-6 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
             <img

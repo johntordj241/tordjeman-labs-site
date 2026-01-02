@@ -86,6 +86,9 @@ const approach = [
   }
 ];
 
+const brandVideoId = import.meta.env.VITE_BRAND_VIDEO_ID || 'zpOULjyy-n8';
+const brandVideoUrl = `https://www.youtube.com/embed/${brandVideoId}?rel=0&modestbranding=1&playsinline=1`;
+
 export default function Home() {
   return (
     <div className="flex flex-col">
@@ -118,10 +121,11 @@ export default function Home() {
           </p>
           <div className="aspect-video rounded-2xl overflow-hidden border border-white/20 shadow-xl">
             <iframe
-              src="https://player.vimeo.com/video/1150144011?title=0&byline=0&portrait=0"
+              src={brandVideoUrl}
               title="Animation du logo Tordjeman Labs"
-              allow="autoplay; fullscreen; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               loading="lazy"
+              allowFullScreen
               className="w-full h-full"
             />
           </div>
