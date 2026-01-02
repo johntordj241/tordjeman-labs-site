@@ -72,8 +72,8 @@ export default function Publications() {
           <p className="text-gray-600 mb-4">
             Certaines publications restent réservées aux partenaires disposant d’un accord de
             confidentialité. Écrivez à{' '}
-            <a href="mailto:editions@tordjeman-labs.com" className="text-blue-900 font-semibold">
-              editions@tordjeman-labs.com
+            <a href="mailto:editions@tordjemanlabs.com" className="text-blue-900 font-semibold">
+              editions@tordjemanlabs.com
             </a>{' '}
             pour recevoir la table des matières sécurisée.
           </p>

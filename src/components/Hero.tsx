@@ -19,14 +19,14 @@ export default function Hero() {
       <div className="relative z-10 pt-32 pb-16 sm:pt-48 sm:pb-24 lg:pt-64 lg:pb-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm uppercase tracking-[0.6em] text-blue-100 mb-6">
-            Vitrine institutionnelle
+            Hub stratégique Tordjeman Labs
           </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8">
-            L’innovation éthique au service des décisions publiques et privées
+            Orchestrer les transitions avec rigueur, indépendance et discrétion
           </h1>
           <p className="max-w-2xl mx-auto text-xl text-gray-100 mb-12">
-            Tordjeman Labs accompagne les dirigeants dans l’analyse des transitions critiques et la
-            mise en œuvre de stratégies sobres, sans exposer l’atelier interne au grand public.
+            La vitrine publique présente les orientations du hub : un lieu d’analyse, de cadrage et
+            de gouvernance, distinct de l’atelier privé où se tiennent les travaux confidentiels.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a

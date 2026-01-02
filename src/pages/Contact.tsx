@@ -4,21 +4,21 @@ import { Mail, Phone, MapPin, Clock, Users } from 'lucide-react';
 const contactChannels = [
   {
     title: 'Relations institutionnelles',
-    description: 'Cabinets ministériels, autorités indépendantes, collectivités.',
+    description: 'Cabinets ministériels, autorités indépendantes, collectivités territoriales.',
     icon: Users,
-    email: 'institutions@tordjeman-labs.com'
+    email: 'contact@tordjemanlabs.com'
   },
   {
     title: 'Partenariats scientifiques & ONG',
-    description: 'Laboratoires, think tanks, associations d’intérêt général.',
+    description: 'Laboratoires, think tanks, organisations à but non lucratif.',
     icon: Mail,
-    email: 'alliances@tordjeman-labs.com'
+    email: 'info@tordjemanlabs.com'
   },
   {
     title: 'Presse & médias',
-    description: 'Demandes d’interviews, tribunes, conférences.',
+    description: 'Demandes d’interviews, tribunes ou prises de parole.',
     icon: Phone,
-    email: 'media@tordjeman-labs.com'
+    email: 'contact@tordjemanlabs.com'
   }
 ];
 
@@ -27,15 +27,11 @@ export default function Contact() {
     <div className="pt-24 pb-16 bg-gray-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[0.4em] text-blue-900 font-semibold mb-3">
-            Contact
-          </p>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Entrer en relation avec l’équipe Tordjeman Labs
-          </h1>
+          <p className="text-sm uppercase tracking-[0.4em] text-blue-900 font-semibold mb-3">Contact</p>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Entrer en relation avec Tordjeman Labs</h1>
           <p className="text-lg text-gray-600">
-            Le site public présente nos orientations. Pour accéder à l’atelier interne sécurisé ou
-            lancer une mission, merci d’utiliser les canaux ci-dessous.
+            Le site public relaie des orientations validées. Pour accéder à l’atelier interne sécurisé ou initier une
+            mission confidentielle, merci d’utiliser les canaux ci-dessous.
           </p>
         </div>
 
@@ -49,10 +45,7 @@ export default function Contact() {
                 <h2 className="ml-3 text-lg font-semibold text-gray-900">{channel.title}</h2>
               </div>
               <p className="text-sm text-gray-600 mb-4">{channel.description}</p>
-              <a
-                href={`mailto:${channel.email}`}
-                className="text-sm font-semibold text-blue-900 hover:underline"
-              >
+              <a href={`mailto:${channel.email}`} className="text-sm font-semibold text-blue-900 hover:underline">
                 {channel.email}
               </a>
             </div>
@@ -67,7 +60,8 @@ export default function Contact() {
                 Siège
               </div>
               <p className="text-gray-700 text-sm">
-                10 rue de la Paix <br />
+                10 rue de la Paix
+                <br />
                 75002 Paris — France
               </p>
             </div>
@@ -77,7 +71,7 @@ export default function Contact() {
                 Disponibilités
               </div>
               <p className="text-gray-700 text-sm">
-                Lundi à vendredi — 09h00 / 18h30
+                Lundi à vendredi : 09h00 / 18h30
                 <br />
                 Réponse sous 48h ouvrées.
               </p>
@@ -85,22 +79,25 @@ export default function Contact() {
             <div>
               <div className="flex items-center text-blue-900 mb-2">
                 <Mail className="h-5 w-5 mr-2" />
-                Point de contact général
+                Points de contact
               </div>
-              <a href="mailto:contact@tordjeman-labs.com" className="text-gray-700 text-sm hover:underline">
-                contact@tordjeman-labs.com
-              </a>
-              <p className="text-gray-500 text-xs mt-1">
-                Les documents sensibles transitent uniquement par canaux chiffrés.
-              </p>
+              <div className="flex flex-col text-sm text-gray-700 space-y-1">
+                <a href="mailto:contact@tordjemanlabs.com" className="hover:underline">
+                  contact@tordjemanlabs.com
+                </a>
+                <a href="mailto:info@tordjemanlabs.com" className="hover:underline">
+                  info@tordjemanlabs.com
+                </a>
+              </div>
+              <p className="text-gray-500 text-xs mt-1">Les documents sensibles transitent uniquement par canaux chiffrés.</p>
             </div>
           </div>
         </div>
 
         <div className="text-center text-sm text-gray-500">
           <p>
-            L’atelier interne (outils collaboratifs, IDE, tableaux de bord) reste strictement
-            réservé aux équipes accréditées. Aucun compte public n’est délivré depuis ce site.
+            L’atelier interne (outils collaboratifs, IDE, tableaux de bord) reste strictement réservé aux équipes
+            accréditées. Aucun compte public n’est délivré depuis ce site.
           </p>
         </div>
       </div>

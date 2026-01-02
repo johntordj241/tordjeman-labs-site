@@ -31,11 +31,15 @@ export default function About() {
           <p className="text-sm uppercase tracking-[0.4em] text-blue-900 font-semibold mb-3">
             À propos
           </p>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Un laboratoire stratégique indépendant</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Hub d’orchestration fondé par Georges John Tordjeman</h1>
           <p className="text-lg text-gray-600">
-            Fondé par Georges John Tordjeman, le laboratoire réunit des ingénieurs, designers, chercheurs
-            et experts en politiques publiques. Cette vitrine partage nos axes et publications ; l’atelier
-            interne reste réservé aux partenaires mandatés.
+            Laboratoire indépendant installé à Nice, Tordjeman Labs observe les transitions
+            systémiques et soutient les dirigeants dans leurs arbitrages de long terme. Cette vitrine
+            reflète notre posture ; l’atelier privé, piloté via TAI-Systeme (Notion), demeure hors exposition.
+          </p>
+          <p className="mt-6 text-base text-gray-500">
+            Notre signature : discernement, continuité, responsabilité. Nous privilégions une parole
+            rare et fiable à toute promesse opérationnelle.
           </p>
         </div>
 
@@ -51,13 +55,12 @@ export default function About() {
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Une gouvernance claire</h2>
             <p className="text-gray-600 mb-4">
-              Les travaux publics (notes, publications) sont produits dans cette instance. Les
-              prototypes, IDE ou tableaux de bord restent confinés dans un environnement privé et
-              auditables par nos partenaires.
+              Les contenus publiés sont préparés dans cette instance. Les scénarios, arbitrages et
+              décisions détaillés se déroulent dans l’atelier privé, sous accords dédiés.
             </p>
             <p className="text-gray-600">
-              Cette organisation garantit la séparation stricte entre la communication institutionnelle
-              et les expérimentations opérationnelles.
+              Cette séparation garantit la cohérence entre la parole institutionnelle et la
+              protection des travaux sensibles.
             </p>
           </div>
         </div>

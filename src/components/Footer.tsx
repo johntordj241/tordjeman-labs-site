@@ -17,9 +17,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">Nous contacter</h3>
             <div className="space-y-2">
-              <a href="mailto:contact@tordjeman-labs.com" className="flex items-center hover:text-white">
+              <a href="mailto:contact@tordjemanlabs.com" className="flex items-center hover:text-white">
                 <Mail className="h-5 w-5 mr-2" />
-                contact@tordjeman-labs.com
+                contact@tordjemanlabs.com
               </a>
               <a href="tel:+33100000000" className="flex items-center hover:text-white">
                 <Phone className="h-5 w-5 mr-2" />

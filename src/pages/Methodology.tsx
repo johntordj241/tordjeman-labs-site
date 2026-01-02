@@ -3,39 +3,39 @@ import { Compass, Target, Layers, Repeat, Award } from 'lucide-react';
 
 const steps = [
   {
-    title: 'Exploration & signaux faibles',
+    title: 'Observation',
     description:
-      'Analyse documentaire, immersion terrain et entretiens croisés pour comprendre les points de bascule et clarifier le mandat.',
+      'Veille, signaux faibles, entretiens croisés. Nous clarifions le mandat et les points de bascule avant tout engagement.',
     icon: Compass,
-    deliverables: ['Cartographie des risques/opportunités', 'Hypothèses partagées', 'Priorisation des sujets sensibles']
+    deliverables: ['Cartographies des enjeux', 'Hypothèses partagées', 'Priorisation des sujets sensibles']
   },
   {
-    title: 'Cadres éthiques et critères décisionnels',
+    title: 'Cadres éthiques',
     description:
-      'Formalisation des principes de responsabilité, de transparence et d’inclusion propres à l’organisation.',
+      'Formalisation des principes de responsabilité, gouvernance et transparence propres à chaque partenaire.',
     icon: Target,
     deliverables: ['Matrice de décision', 'Comité d’arbitrage', 'Traçabilité des engagements']
   },
   {
-    title: 'Modélisation & prototypage frugal',
+    title: 'Modélisation frugale',
     description:
-      'Scénarisation rapide sous formes de canevas, récits utilisateurs ou démonstrateurs fonctionnels sobres.',
+      'Scénarisation conceptuelle et options d’orchestration. Aucun outil n’est exposé publiquement.',
     icon: Layers,
     deliverables: ['Jumeaux conceptuels', 'Expériences guidées', 'Critères de passage en pilote']
   },
   {
     title: 'Itération encadrée',
     description:
-      'Pilotes ciblés avec métriques qualitatives et quantitatives pour confirmer l’intérêt stratégique avant industrialisation.',
+      'Pilotes ciblés sous gouvernance éthique, avec capitalisation continue.',
     icon: Repeat,
     deliverables: ['Journal d’apprentissage', 'Feuilles de route par direction', 'Recommandations budgétaires']
   },
   {
     title: 'Capitalisation & transfert',
     description:
-      'Transmission des méthodes, formation des binômes internes et articulation avec l’atelier privé Tordjeman Labs.',
+      'Transmission des méthodes, documentation des décisions et articulation avec l’atelier privé.',
     icon: Award,
-    deliverables: ['Guides opérationnels', 'Sessions de montée en compétence', 'Plan d’autonomie']
+    deliverables: ['Guides institutionnels', 'Sessions de montée en compétence', 'Plan d’autonomie']
   }
 ];
 
