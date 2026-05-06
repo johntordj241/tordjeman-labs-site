@@ -35,6 +35,10 @@ export default function Contact() {
           </p>
         </div>
 
+        <p className="text-sm text-gray-600 text-center mb-8">
+          Merci de préciser si votre demande concerne une mission de cadrage, de structuration ou d'arbitrage stratégique.
+        </p>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {contactChannels.map((channel) => (
             <div key={channel.title} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">

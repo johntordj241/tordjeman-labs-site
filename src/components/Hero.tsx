@@ -28,6 +28,14 @@ export default function Hero() {
             La vitrine publique présente les orientations du hub : un lieu d’analyse, de cadrage et
             de gouvernance, distinct de l’atelier privé où se tiennent les travaux confidentiels.
           </p>
+          <p className="max-w-2xl mx-auto text-sm text-blue-100 mb-4">
+            Certaines problématiques peuvent être structurées rapidement via un format court de cadrage stratégique.
+          </p>
+          <p className="mb-8">
+            <a href="/modalites-collaboration" className="text-sm text-blue-100 underline underline-offset-4 hover:text-white">
+              Voir les modalités de collaboration
+            </a>
+          </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
               href="/expertises"

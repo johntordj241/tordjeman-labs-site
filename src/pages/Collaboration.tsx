@@ -154,31 +154,67 @@ export default function Collaboration() {
 
         <section className="space-y-6 mb-10">
           {collaborationTypes.map((type) => (
-            <div key={type.title} className="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm">
-              <div className="flex items-center mb-4">
-                <Handshake className="h-5 w-5 text-blue-900 mr-3" />
-                <h3 className="text-xl font-semibold text-gray-900">{type.title}</h3>
-              </div>
-              <p className="text-sm text-gray-500 mb-2">Public concerné : {type.audience}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-blue-900 font-semibold mb-2">Format</p>
-                  <ul className="space-y-1 text-sm text-gray-600 list-disc pl-5">
-                    {type.format.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+            <React.Fragment key={type.title}>
+              <div className="bg-white rounded-3xl border border-gray-100 p-6 shadow-sm">
+                <div className="flex items-center mb-4">
+                  <Handshake className="h-5 w-5 text-blue-900 mr-3" />
+                  <h3 className="text-xl font-semibold text-gray-900">{type.title}</h3>
                 </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.3em] text-blue-900 font-semibold mb-2">Conditions</p>
-                  <ul className="space-y-1 text-sm text-gray-600 list-disc pl-5">
-                    {type.conditions.map((condition) => (
-                      <li key={condition}>{condition}</li>
-                    ))}
-                  </ul>
+                <p className="text-sm text-gray-500 mb-2">Public concerné : {type.audience}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.3em] text-blue-900 font-semibold mb-2">Format</p>
+                    <ul className="space-y-1 text-sm text-gray-600 list-disc pl-5">
+                      {type.format.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.3em] text-blue-900 font-semibold mb-2">Conditions</p>
+                    <ul className="space-y-1 text-sm text-gray-600 list-disc pl-5">
+                      {type.conditions.map((condition) => (
+                        <li key={condition}>{condition}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
+
+              {type.title === 'Missions d’architecture stratégique' && (
+                <div className="bg-blue-50/60 rounded-3xl border border-blue-100 p-6 shadow-sm">
+                  <p className="text-xs uppercase tracking-[0.3em] text-blue-900 font-semibold mb-3">Format court disponible</p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Intervention possible à court terme</h3>
+                  <div className="space-y-4 text-sm text-gray-600">
+                    <p>
+                      Certaines situations nécessitent une clarification rapide avant tout engagement prolongé.
+                    </p>
+                    <div>
+                      <p className="font-semibold text-gray-900">Sprint de structuration stratégique (7 à 10 jours)</p>
+                    </div>
+                    <p>
+                      Ce format permet de transformer une problématique floue ou difficile à arbitrer en un cadre
+                      structuré, exploitable et directement mobilisable par les décideurs.
+                    </p>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-2">Livrables :</p>
+                      <ul className="space-y-1 list-disc pl-5">
+                        <li>cadrage précis (objectifs, périmètre, contraintes, hypothèses)</li>
+                        <li>clarification des décisions critiques et options associées</li>
+                        <li>identification des risques principaux et arbitrages nécessaires</li>
+                        <li>élaboration d’une première roadmap (30 à 60 jours)</li>
+                        <li>définition des critères de qualité et de validation</li>
+                        <li>démonstration du projet sous forme de scénario structuré</li>
+                      </ul>
+                    </div>
+                    <p>
+                      <span className="font-semibold text-gray-900">Résultat : </span>
+                      une base décisionnelle claire (GO / NO-GO / conditions) permettant un engagement sécurisé.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </section>
 
