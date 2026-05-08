@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Clock, Users } from 'lucide-react';
+import StrategicQualificationForm from '../components/qualification/StrategicQualificationForm';
 
 const contactChannels = [
   {
@@ -38,6 +39,8 @@ export default function Contact() {
         <p className="text-sm text-gray-600 text-center mb-8">
           Merci de préciser si votre demande concerne une mission de cadrage, de structuration ou d'arbitrage stratégique.
         </p>
+
+        <StrategicQualificationForm />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {contactChannels.map((channel) => (
