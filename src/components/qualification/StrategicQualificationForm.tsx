@@ -15,6 +15,9 @@ const stepTitles = [
 ];
 
 const NETLIFY_FORM_NAME = 'strategic-qualification';
+const DEFAULT_LEAD_STATUS = 'New';
+const LEAD_PIPELINE_VERSION = 'v1';
+const NOT_PROVIDED_VALUE = 'not-provided';
 
 const initialAnswers: QualificationAnswers = {
   organizationName: '',
@@ -70,13 +73,18 @@ export default function StrategicQualificationForm() {
       return value ? 'yes' : 'no';
     }
 
-    return value;
+    const normalizedValue = value.trim();
+    return normalizedValue.length > 0 ? normalizedValue : NOT_PROVIDED_VALUE;
   };
 
   const submitToNetlify = async (result: QualificationSubmission) => {
     const payload = new URLSearchParams({
       'form-name': NETLIFY_FORM_NAME,
       submittedAt: result.submittedAt,
+      submittedDate: result.submittedAt,
+      leadStatus: DEFAULT_LEAD_STATUS,
+      leadPipelineVersion: LEAD_PIPELINE_VERSION,
+      problemStatement: toFormValue(result.answers.mainObjective),
       qualificationCategory: result.evaluation.category,
       qualificationTotalScore: String(result.evaluation.totalScore),
       qualificationMaturityScore: String(result.evaluation.maturityScore),
