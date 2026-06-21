@@ -61,6 +61,7 @@ export interface QualificationAnswers {
   shortSprintOpenness: SprintOpenness;
   criticalDeadline: boolean;
   ipProtectionStatus: IpProtectionStatus;
+  consentGiven: boolean;
 }
 
 export type QualificationCategory = 'NO-GO' | 'Pre-qualification' | 'GO' | 'Priority';

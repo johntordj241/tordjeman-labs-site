@@ -14,6 +14,8 @@ const stepTitles = [
   'Etape 4 - Budget et processus de decision'
 ];
 
+const NETLIFY_FORM_NAME = 'strategic-qualification';
+
 const initialAnswers: QualificationAnswers = {
   organizationName: '',
   organizationType: 'private-company',
@@ -42,13 +44,16 @@ const initialAnswers: QualificationAnswers = {
   decisionProcess: 'committee',
   shortSprintOpenness: 'discuss',
   criticalDeadline: false,
-  ipProtectionStatus: 'reflection'
+  ipProtectionStatus: 'reflection',
+  consentGiven: false
 };
 
 export default function StrategicQualificationForm() {
   const [step, setStep] = useState(1);
   const [answers, setAnswers] = useState<QualificationAnswers>(initialAnswers);
   const [submission, setSubmission] = useState<QualificationSubmission | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionError, setSubmissionError] = useState('');
 
   const isLastStep = step === 4;
   const progress = useMemo(() => Math.round((step / 4) * 100), [step]);
@@ -60,20 +65,74 @@ export default function StrategicQualificationForm() {
   const goNext = () => setStep((prev) => Math.min(4, prev + 1));
   const goBack = () => setStep((prev) => Math.max(1, prev - 1));
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const toFormValue = (value: string | boolean): string => {
+    if (typeof value === 'boolean') {
+      return value ? 'yes' : 'no';
+    }
+
+    return value;
+  };
+
+  const submitToNetlify = async (result: QualificationSubmission) => {
+    const payload = new URLSearchParams({
+      'form-name': NETLIFY_FORM_NAME,
+      submittedAt: result.submittedAt,
+      qualificationCategory: result.evaluation.category,
+      qualificationTotalScore: String(result.evaluation.totalScore),
+      qualificationMaturityScore: String(result.evaluation.maturityScore),
+      qualificationFeasibilityScore: String(result.evaluation.feasibilityScore),
+      qualificationStrategicValueScore: String(result.evaluation.strategicValueScore),
+      ...Object.fromEntries(
+        Object.entries(result.answers).map(([key, value]) => [key, toFormValue(value as string | boolean)])
+      )
+    });
+
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: payload.toString()
+    });
+
+    if (!response.ok) {
+      throw new Error('Netlify form submission failed');
+    }
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSubmissionError('');
 
     if (!isLastStep) {
       goNext();
       return;
     }
 
+    if (!answers.consentGiven) {
+      setSubmissionError("Le consentement est requis pour soumettre la pre-qualification.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
     const result = buildQualificationSubmission(answers);
-    setSubmission(result);
+
+    try {
+      await submitToNetlify(result);
+      setSubmission(result);
+    } catch {
+      setSubmission(null);
+      setSubmissionError('La soumission a echoue. Merci de reessayer dans quelques instants.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const restart = () => {
     setSubmission(null);
+    setSubmissionError('');
+    setIsSubmitting(false);
     setStep(1);
     setAnswers(initialAnswers);
   };
@@ -99,7 +158,14 @@ export default function StrategicQualificationForm() {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form
+        name={NETLIFY_FORM_NAME}
+        data-netlify="true"
+        onSubmit={handleSubmit}
+        className="space-y-6"
+      >
+        <input type="hidden" name="form-name" value={NETLIFY_FORM_NAME} />
+        <input type="hidden" name="bot-field" />
         {step === 1 && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
@@ -451,7 +517,21 @@ export default function StrategicQualificationForm() {
               />
               Presence d'une deadline critique (juridique, salon, publication)
             </label>
+            <label className="md:col-span-2 inline-flex items-start gap-3 rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-700">
+              <input
+                type="checkbox"
+                checked={answers.consentGiven}
+                onChange={(e) => updateAnswer('consentGiven', e.target.checked)}
+                className="mt-1 h-4 w-4 text-blue-900 rounded border-gray-300"
+                required
+              />
+              J'accepte que les informations transmises soient utilisees exclusivement dans le cadre de l'analyse de ma demande de collaboration ou d'intervention par Tordjeman Labs.
+            </label>
           </div>
+        )}
+
+        {submissionError && (
+          <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{submissionError}</div>
         )}
 
         <div className="flex flex-col sm:flex-row gap-3 sm:justify-between">
@@ -463,13 +543,13 @@ export default function StrategicQualificationForm() {
           >
             Etape precedente
           </button>
-          <button type="submit" className="btn">
-            {isLastStep ? 'Lancer la qualification' : 'Etape suivante'}
+          <button type="submit" className="btn" disabled={isSubmitting}>
+            {isLastStep ? (isSubmitting ? 'Soumission en cours...' : 'Lancer la qualification') : 'Etape suivante'}
           </button>
         </div>
       </form>
 
-      {submission && (
+      {submission && !submissionError && (
         <div className="mt-8 space-y-4">
           <div className="rounded-2xl border border-gray-200 bg-gray-50 px-6 py-4">
             <p className="text-sm text-gray-700">
