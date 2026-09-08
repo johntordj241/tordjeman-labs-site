@@ -90,6 +90,7 @@ const ProjectCarousel = () => {
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
             disabled={isTransitioning}
+            aria-label="Diapositive précédente"
           >
             <ArrowLeft className="h-6 w-6 text-gray-900" />
           </button>
@@ -98,6 +99,7 @@ const ProjectCarousel = () => {
             onClick={nextSlide}
             className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
             disabled={isTransitioning}
+            aria-label="Diapositive suivante"
           >
             <ArrowRight className="h-6 w-6 text-gray-900" />
           </button>
@@ -110,6 +112,8 @@ const ProjectCarousel = () => {
                 className={`w-2 h-2 rounded-full transition-colors ${
                   index === currentIndex ? 'bg-blue-900' : 'bg-gray-300'
                 }`}
+                aria-label={`Aller à la diapositive ${index + 1}`}
+                aria-current={index === currentIndex ? 'true' : 'false'}
               />
             ))}
           </div>

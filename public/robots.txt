@@ -1,0 +1,25 @@
+# Robots.txt pour tordjemanlabs.com
+# Généré pour vitrine institutionnelle figée
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /.env
+Disallow: /src/
+Disallow: /dist/
+Disallow: /node_modules/
+
+# Répertoire des sitemaps
+Sitemap: https://www.tordjemanlabs.com/sitemap.xml
+
+# Moteurs autorisés
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Tous les autres agents ont le même accès
+User-agent: *
+Crawl-delay: 2

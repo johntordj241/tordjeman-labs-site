@@ -21,9 +21,13 @@ export default function Footer() {
                 <Mail className="h-5 w-5 mr-2" />
                 contact@tordjemanlabs.com
               </a>
-              <a href="tel:+33100000000" className="flex items-center hover:text-white">
+              <a href="tel:+33184802200" className="flex items-center hover:text-white">
                 <Phone className="h-5 w-5 mr-2" />
                 +33 1 84 80 22 00
+              </a>
+              <a href="tel:+33749803243" className="flex items-center hover:text-white">
+                <Phone className="h-5 w-5 mr-2" />
+                +33 7 49 80 32 43
               </a>
             </div>
           </div>

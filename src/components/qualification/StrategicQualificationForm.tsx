@@ -206,7 +206,7 @@ export default function StrategicQualificationForm() {
               </select>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Nom et prenom du contact</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Nom et prénom du contact</label>
               <input
                 type="text"
                 value={answers.contactName}
@@ -236,7 +236,7 @@ export default function StrategicQualificationForm() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Telephone</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
               <input
                 type="text"
                 value={answers.phone}
@@ -246,7 +246,7 @@ export default function StrategicQualificationForm() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Site web ou presentation publique</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Site web ou présentation publique</label>
               <input
                 type="url"
                 value={answers.website}
@@ -314,8 +314,8 @@ export default function StrategicQualificationForm() {
                 onChange={(e) => updateAnswer('projectType', e.target.value as QualificationAnswers['projectType'])}
                 className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="creation">Creation</option>
-                <option value="evolution">Evolution d'un projet existant</option>
+                <option value="creation">Création</option>
+                <option value="evolution">Évolution d'un projet existant</option>
                 <option value="extension">Extension ou diversification</option>
               </select>
             </div>
@@ -328,7 +328,7 @@ export default function StrategicQualificationForm() {
               >
                 <option value="innovation">Innovation technologique</option>
                 <option value="growth">Croissance ou traction</option>
-                <option value="cost-reduction">Reduction de couts</option>
+                <option value="cost-reduction">Réduction de coûts</option>
                 <option value="automation">Automatisation de processus</option>
                 <option value="ip-valorization">Valorisation d'un actif de PI</option>
                 <option value="other">Autre</option>
@@ -341,12 +341,12 @@ export default function StrategicQualificationForm() {
                 onChange={(e) => updateAnswer('supportNeed', e.target.value as QualificationAnswers['supportNeed'])}
                 className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                <option value="strategic-advisory">Conseil strategique</option>
+                <option value="strategic-advisory">Conseil stratégique</option>
                 <option value="exploratory-audit">Audit exploratoire</option>
                 <option value="product-design">Design produit / prototype</option>
-                <option value="software-ai-development">Developpement logiciel / IA</option>
-                <option value="fundraising-support">Accompagnement levee de fonds</option>
-                <option value="market-study">Etude de marche / business plan</option>
+                <option value="software-ai-development">Développement logiciel / IA</option>
+                <option value="fundraising-support">Accompagnement levée de fonds</option>
+                <option value="market-study">Étude de marché / business plan</option>
               </select>
             </div>
             <div>
@@ -549,10 +549,10 @@ export default function StrategicQualificationForm() {
             disabled={step === 1}
             className="btn-outline disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Etape precedente
+            Étape précédente
           </button>
           <button type="submit" className="btn" disabled={isSubmitting}>
-            {isLastStep ? (isSubmitting ? 'Soumission en cours...' : 'Lancer la qualification') : 'Etape suivante'}
+            {isLastStep ? (isSubmitting ? 'Soumission en cours...' : 'Lancer la qualification') : 'Étape suivante'}
           </button>
         </div>
       </form>
@@ -569,7 +569,7 @@ export default function StrategicQualificationForm() {
           <QualificationResult result={submission.evaluation} />
           <div className="flex justify-end">
             <button type="button" onClick={restart} className="btn-outline">
-              Reinitialiser l'evaluation
+              Réinitialiser l'évaluation
             </button>
           </div>
         </div>
