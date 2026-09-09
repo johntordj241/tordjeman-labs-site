@@ -39,7 +39,7 @@ export default function Footer() {
               dédiées. Les environnements collaboratifs restent strictement confidentiels.
             </p>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/company/tordjeman-labs"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center text-sm font-semibold text-white hover:underline"

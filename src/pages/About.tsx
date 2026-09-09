@@ -35,7 +35,7 @@ export default function About() {
           <p className="text-lg text-gray-600">
             Laboratoire indépendant installé à Nice, Tordjeman Labs observe les transitions
             systémiques et soutient les dirigeants dans leurs arbitrages de long terme. Cette vitrine
-            reflète notre posture ; l’atelier privé, piloté via TAI-Systeme (Notion), demeure hors exposition.
+            reflète notre posture ; l'atelier prive, pilote via TAI-Systeme (Notion), demeure hors exposition.
           </p>
           <p className="mt-6 text-base text-gray-500">
             Notre signature : discernement, continuité, responsabilité. Nous privilégions une parole

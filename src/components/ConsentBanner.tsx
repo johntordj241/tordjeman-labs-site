@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
-import { getConsent, setConsent, type ConsentPreferences } from '../lib/ga';
+import { setConsent } from '../lib/ga';
 
 export default function ConsentBanner() {
   const [isVisible, setIsVisible] = useState(false);
-  const [preferences, setPreferences] = useState<ConsentPreferences | null>(null);
 
   useEffect(() => {
-    const consent = getConsent();
-    setPreferences(consent);
     // Show banner only if never explicitly set
     const isFirstVisit = localStorage.getItem('tordjeman-labs-consent-shown') === null;
     if (isFirstVisit) {

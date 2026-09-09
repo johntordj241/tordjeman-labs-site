@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const projects = [
@@ -32,24 +32,24 @@ const ProjectCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
     }
-  };
+  }, [isTransitioning]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
     }
-  };
+  }, [isTransitioning]);
 
   useEffect(() => {
     const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [nextSlide]);
 
   const handleTransitionEnd = () => {
     setIsTransitioning(false);

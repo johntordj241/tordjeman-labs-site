@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowRight, Shield, BookText, Users, Layers, Network, PenTool, Compass, Gavel } from 'lucide-react';
+﻿import React from 'react';
+import { ArrowRight, Shield, BookText, Layers, Network, PenTool, Compass, Gavel } from 'lucide-react';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import ProjectCarousel from '../components/home/ProjectCarousel';
@@ -257,7 +257,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-4">Interface discrète entre institutions et ateliers</h2>
           <p className="text-blue-100 mb-6">
             Tordjeman Labs agit comme médiateur entre institutions publiques, partenaires privés et
-            acteurs associatifs. La vitrine partage les orientations validées ; les travaux sensibles
+            acteurs associatifs. La vitrine partage les orientations validées ; les travaux sensibles
             restent pilotés dans TAI-Systeme (Notion) et ne sont jamais exposés.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

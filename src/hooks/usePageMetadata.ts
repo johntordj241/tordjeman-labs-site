@@ -111,6 +111,16 @@ const pageMetadataMap: Record<string, PageMetadata> = {
   }
 };
 
+const notFoundMetadata: PageMetadata = {
+  title: 'Page non trouvée — Tordjeman Labs',
+  description: "La page demandee n'existe pas. Retournez a l'accueil.",
+  ogTitle: 'Page non trouvée — Tordjeman Labs',
+  ogDescription: "La page demandee n'existe pas. Retournez a l'accueil.",
+  twitterTitle: 'Page non trouvée — Tordjeman Labs',
+  twitterDescription: "La page demandee n'existe pas. Retournez a l'accueil.",
+  canonical: 'https://www.tordjemanlabs.com/'
+};
+
 /**
  * Hook to update page metadata (title, meta tags) on route change
  */
@@ -118,7 +128,8 @@ export function usePageMetadata(): void {
   const location = useLocation();
 
   useEffect(() => {
-    const metadata = pageMetadataMap[location.pathname] || pageMetadataMap['/'];
+    const isKnownRoute = location.pathname in pageMetadataMap;
+    const metadata = isKnownRoute ? pageMetadataMap[location.pathname] : notFoundMetadata;
 
     // Update title
     document.title = metadata.title;
@@ -146,6 +157,8 @@ export function usePageMetadata(): void {
 
     // Update canonical
     updateCanonical(metadata.canonical || `https://www.tordjemanlabs.com${location.pathname}`);
+
+    updateMetaTag('name', 'robots', isKnownRoute ? 'index, follow' : 'noindex, follow');
   }, [location]);
 }
 

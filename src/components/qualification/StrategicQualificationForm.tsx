@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+﻿import React, { useMemo, useState } from 'react';
 import QualificationResult from './QualificationResult';
 import {
   buildQualificationSubmission,
@@ -302,8 +302,7 @@ export default function StrategicQualificationForm() {
                 Décrivez votre projet ou produit en quelques lignes, comme si vous le présentiez à un partenaire
                 stratégique ou à un comité de décision.<br />
                 <span className="italic">
-                  Exemple : Plateforme de diagnostic médical préventif utilisant l’IA et des données biométriques
-                  collectées via objets connectés.
+                  Exemple : Plateforme de diagnostic médical préventif utilisant l'IA et des données biométriques collectées via objets connectés.
                 </span>
               </p>
             </div>
@@ -528,6 +527,7 @@ export default function StrategicQualificationForm() {
             <label className="md:col-span-2 inline-flex items-start gap-3 rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-700">
               <input
                 type="checkbox"
+                name="consentGiven"
                 checked={answers.consentGiven}
                 onChange={(e) => updateAnswer('consentGiven', e.target.checked)}
                 className="mt-1 h-4 w-4 text-blue-900 rounded border-gray-300"

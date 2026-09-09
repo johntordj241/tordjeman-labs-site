@@ -72,13 +72,14 @@ function loadGAScript(): void {
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
   document.head.appendChild(script);
 
-  window.dataLayer = window.dataLayer || [];
-  function gtag(...args: any[]) {
-    window.dataLayer.push(arguments);
+  const dataLayer: unknown[][] = [];
+  window.dataLayer = window.dataLayer || dataLayer;
+  function gtag(...args: unknown[]) {
+    window.dataLayer?.push(args);
   }
   gtag('js', new Date());
   gtag('config', GA_MEASUREMENT_ID);
-  (window as any).gtag = gtag;
+  window.gtag = gtag;
 }
 
 /**
@@ -86,7 +87,7 @@ function loadGAScript(): void {
  */
 export function trackPageView(path: string): void {
   if (!window.gtag) return;
-  (window as any).gtag('event', 'page_view', {
+  window.gtag('event', 'page_view', {
     page_path: path,
     page_title: document.title
   });
@@ -97,10 +98,10 @@ export function trackPageView(path: string): void {
  */
 export function trackEvent(
   eventName: string,
-  eventData?: Record<string, any>
+  eventData?: Record<string, unknown>
 ): void {
   if (!window.gtag) return;
-  (window as any).gtag('event', eventName, eventData);
+  window.gtag('event', eventName, eventData);
 }
 
 /**
@@ -130,7 +131,7 @@ export function trackDownload(fileName: string, fileUrl: string): void {
 // Extend Window interface
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
-    dataLayer?: any[];
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[][];
   }
 }
